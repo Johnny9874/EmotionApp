@@ -1,5 +1,6 @@
 "use client"
-import { useState } from 'react'
+import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [text, setText] = useState('')
@@ -20,6 +21,11 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-6">
+      <Link href="/auth">
+        <button className="bg-emerald-700 rounded text-white p-2 font-bold cursor-pointer">
+          sign in/sign up
+        </button>
+      </Link>
       <h1 className="text-2xl font-bold mb-4">💭 What am i feeling right now...</h1>
       <textarea
         className="border p-2 w-80 h-32 rounded"
@@ -29,7 +35,7 @@ export default function Home() {
       />
       <button
         onClick={handleAnalyze}
-        className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
+        className="mt-4 px-4 py-2 bg-emerald-600 text-white rounded font-bold"
         disabled={loading}
       >
         {loading ? 'Analyzing...' : 'Analyze'}
