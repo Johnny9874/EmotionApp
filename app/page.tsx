@@ -20,24 +20,24 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-6">
-      <h1 className="text-2xl font-bold mb-4">💭 Ce que je ressens...</h1>
+      <h1 className="text-2xl font-bold mb-4">💭 What am i feeling right now...</h1>
       <textarea
         className="border p-2 w-80 h-32 rounded"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Écris librement ici..."
+        placeholder="Write freely here..."
       />
       <button
         onClick={handleAnalyze}
         className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
         disabled={loading}
       >
-        {loading ? 'Analyse...' : 'Analyser'}
+        {loading ? 'Analyzing...' : 'Analyze'}
       </button>
 
       {result && (
         <div className="mt-6 p-4 border rounded w-80 text-center">
-          <p>Émotion détectée : <strong>{result.emotion}</strong></p>
+          <p>Detected emotion: <strong>{result.emotion}</strong></p>
           <p className="text-gray-600 mt-2">{result.feedback}</p>
         </div>
       )}
