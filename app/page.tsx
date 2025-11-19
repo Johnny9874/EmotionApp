@@ -3,50 +3,26 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 export default function Home() {
-  const [text, setText] = useState('')
-  const [result, setResult] = useState<any>(null)
-  const [loading, setLoading] = useState(false)
-
-  const handleAnalyze = async () => {
-    setLoading(true)
-    const res = await fetch('/api/analyze', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text }),
-    })
-    const data = await res.json()
-    setResult(data)
-    setLoading(false)
-  }
-
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-6">
-      <Link href="/auth">
-        <button className="bg-emerald-700 rounded text-white p-2 font-bold cursor-pointer">
-          sign in/sign up
-        </button>
-      </Link>
-      <h1 className="text-2xl font-bold mb-4">💭 What am i feeling right now...</h1>
-      <textarea
-        className="border p-2 w-80 h-32 rounded"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Write freely here..."
-      />
-      <button
-        onClick={handleAnalyze}
-        className="mt-4 px-4 py-2 bg-emerald-600 text-white rounded font-bold"
-        disabled={loading}
-      >
-        {loading ? 'Analyzing...' : 'Analyze'}
-      </button>
-
-      {result && (
-        <div className="mt-6 p-4 border rounded w-80 text-center">
-          <p>Detected emotion: <strong>{result.emotion}</strong></p>
-          <p className="text-gray-600 mt-2">{result.feedback}</p>
-        </div>
-      )}
+    <main className="flex flex-col items-center justify-center min-h-screen bg-linear-to-br from-emerald-100 to-emerald-300 p-6">
+      <div className="bg-white/80 rounded-xl shadow-lg p-10 flex flex-col items-center max-w-lg w-full">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/616/616494.png"
+          alt="Émotion Logo"
+          className="w-24 h-24 mb-6 drop-shadow-lg"
+        />
+        <h1 className="text-4xl font-extrabold text-emerald-800 mb-2 text-center">Welcome on EmotionApp</h1>
+        <p className="text-lg text-emerald-900 mb-8 text-center">
+          Analyze, track, and understand your emotions daily.<br />
+          Log in to start your journey towards emotional well-being.
+        </p>
+        <Link href="/auth" className="w-full">
+          <button className="w-full bg-emerald-700 hover:bg-emerald-800 transition rounded-lg text-white p-3 font-bold text-lg shadow-md">
+            Sign In / Sign Up
+          </button>
+        </Link>
+      </div>
+      <footer className="mt-10 text-emerald-800/70 text-sm">© {new Date().getFullYear()} EmotionApp. All rights reserved.</footer>
     </main>
-  )
+  );
 }

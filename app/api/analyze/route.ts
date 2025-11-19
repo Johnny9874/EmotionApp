@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { supabase } from '../../../lib/supabaseClient'
+import { createClient } from '../../../lib/supabaseClient'
 
 export async function POST(req: Request) {
   try {
@@ -70,7 +70,7 @@ export async function POST(req: Request) {
 
     // Register in Supabase with error handling
     try {
-      await supabase.from('entries').insert({
+      await createClient().from('entries').insert({
         text,
         emotion,
         created_at: new Date().toISOString(),
