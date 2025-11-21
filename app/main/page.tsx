@@ -4,17 +4,16 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabaseClient'
 
-
 export default function Home() {
   const [text, setText] = useState('');
   const [result, setResult] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const [checkingSession, setCheckingSession] = useState(true);
+  const supabase = createClient();
 
   useEffect(() => {
     const checkSession = async () => {
-      const supabase = createClient()
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) {
         router.replace('/auth');
@@ -34,6 +33,11 @@ export default function Home() {
     const data = await res.json();
     setResult(data);
     setLoading(false);
+  };
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    router.replace('auth');
   };
 
   if (checkingSession) {
@@ -65,6 +69,13 @@ export default function Home() {
           disabled={loading}
         >
           {loading ? 'Analyzing...' : 'Analyze'}
+        </button>
+
+        <button
+            onClick={handleLogout}
+            className="w-full bg-red-500 hover:bg-gray-600 transition text-white px-1 py-2 mt-6 rounded-lg font-semibold shadow"
+          >
+            Log Out
         </button>
 
         {result && (
