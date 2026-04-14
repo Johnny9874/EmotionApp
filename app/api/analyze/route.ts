@@ -63,9 +63,9 @@ export async function POST(req: Request) {
     const emotion = labelMapping[topResult.label] || 'neutral'
 
     const feedbacks: Record<string, string> = {
-      positive: "Feels like you are relaxed, keep going ! 🌞",
-      negative: "You seem tense or sad. It's okay, take a minute to breathe 💛",
-      neutral: "You seem calm. Nothing to change for now ✨",
+      positive: "您看起来很放松，继续保持！🌞",
+      negative: "您似乎有些紧张或难过，没关系，深呼吸一下 💛",
+      neutral: "您看起来很平静，暂时无需改变 ✨",
     }
 
     // Register in Supabase with error handling

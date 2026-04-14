@@ -11,18 +11,18 @@ export default function Home() {
           alt="Émotion Logo"
           className="w-24 h-24 mb-6 drop-shadow-lg"
         />
-        <h1 className="text-4xl font-extrabold text-indigo-800 mb-2 text-center">Welcome on EmotionApp</h1>
+        <h1 className="text-4xl font-extrabold text-indigo-800 mb-2 text-center">欢迎使用情绪应用</h1>
         <p className="text-lg text-blue-900 mb-8 text-center">
-          Analyze, track, and understand your emotions daily.<br />
-          Log in to start your journey towards emotional well-being.
+          每天分析、追踪并了解您的情绪。<br />
+          登录，开始您的情绪健康之旅。
         </p>
         <Link href="/auth" className="w-full">
           <button className="w-full bg-indigo-600 hover:bg-indigo-700 transition rounded-lg text-white p-3 font-bold text-lg shadow-md">
-            Sign In / Sign Up
+            登录 / 注册
           </button>
         </Link>
       </div>
-      <footer className="mt-10 text-indigo-800/70 text-sm">© {new Date().getFullYear()} EmotionApp. All rights reserved.</footer>
+      <footer className="mt-10 text-indigo-800/70 text-sm">© {new Date().getFullYear()} EmotionApp. 保留所有权利。</footer>
     </main>
   );
 }

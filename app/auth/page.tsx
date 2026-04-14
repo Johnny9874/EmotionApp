@@ -45,7 +45,7 @@ export default function AuthPage() {
     return (
       <main className="flex flex-col items-center justify-center min-h-screen bg-linear-to-br from-blue-100 to-indigo-200 p-6">
         <div className="bg-white/90 rounded-xl shadow-lg p-10 flex flex-col items-center max-w-md w-full">
-          <span className="text-indigo-800 text-lg font-semibold">Being redirected…</span>
+          <span className="text-indigo-800 text-lg font-semibold">正在跳转…</span>
         </div>
       </main>
     );
@@ -59,13 +59,13 @@ export default function AuthPage() {
           alt="Connexion EmotionApp"
           className="w-16 h-16 mb-4 drop-shadow-lg"
         />
-          <h1 className="text-3xl font-extrabold text-indigo-800 mb-2 text-center">Sign In / Sign Up</h1>
-          <p className="text-blue-900 mb-6 text-center text-base">Access your personal space to track your emotions.</p>
+          <h1 className="text-3xl font-extrabold text-indigo-800 mb-2 text-center">登录 / 注册</h1>
+          <p className="text-blue-900 mb-6 text-center text-base">进入您的个人空间，追踪您的情绪。</p>
           <button
             onClick={handleGoogleSignIn}
             className="bg-indigo-600 hover:bg-indigo-700 transition text-white px-4 py-2 rounded-lg font-semibold mb-4 shadow"
           >
-            Continue with Google
+            使用 Google 登录
           </button>
           {/* simple email version */}
           <form
@@ -77,27 +77,27 @@ export default function AuthPage() {
             }}
             className="flex flex-col gap-3"
           >
-            <input name="email" placeholder="Email" className="border border-indigo-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-black" />
+            <input name="email" placeholder="电子邮件" className="border border-indigo-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-black" />
             <input
               name="password"
               type="password"
-              placeholder="Password"
+              placeholder="密码"
               className="border border-indigo-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-black"
             />
             <button className="bg-indigo-800 hover:bg-indigo-900 transition text-white px-4 py-2 rounded-lg font-semibold mt-2 shadow">
-              Log In
+              登录
             </button>
           </form>
           <div className="mt-4 text-sm text-indigo-800/80 text-center">
-            Don't have an account?{' '}
+            还没有账户？{' '}
             <a
               href="/register"
               className="text-indigo-700 font-semibold hover:underline cursor-pointer"
             >
-              Sign up
+              注册
             </a>
           </div>
-          <footer className="mt-10 text-indigo-800/70 text-sm">© {new Date().getFullYear()} EmotionApp. All rights reserved.</footer>
+          <footer className="mt-10 text-indigo-800/70 text-sm">© {new Date().getFullYear()} EmotionApp. 保留所有权利。</footer>
     </main>
     </>
   )
